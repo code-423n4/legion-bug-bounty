@@ -12,19 +12,18 @@
 
 ### What Is Legion?
 
-Legion is a groundbreaking platform that connects value-add network participants with the most promising crypto projects seeking to build a dedicated community through compliant and incentive-aligned investments, both pre-Token Generation Event (TGE) and for token launches.
+Legion connects investors and contributors with promising crypto projects, enabling compliant and incentive-aligned investments before and after Token Generation Events (TGEs). Our platform supports both pre-TGE fundraising and token launches, streamlining capital raising and token distribution.
 
 ### How Does It Work?
 
-The Legion protocol consists of smart contracts designed to facilitate different types of ERC20 token sales and manage related operations.
+Legion facilitates ERC20 token sales — Fixed Price, Sealed Bid Auction, and Pre-Liquid (Approved & Open Application), ERC20 capital raises and ERC20 token distribution — using the [EIP-1167 Minimal Proxy Standard Clone Pattern](https://eips.ethereum.org/EIPS/eip-1167) for deployment and **Merkle Proofs** + **Signatures** for eligibility verification.
 
-Legion uses a Clone Pattern utilizing the [EIP-1167 Minimal Proxy Standard](https://eips.ethereum.org/EIPS/eip-1167) for deploying sale and vesting schedule contracts. Standard **Merkle Proofs** and **Signatures** are used for verification of different conditions, such as eligibility to distribute tokens to investors, token and funds claiming etc.
-
-Legion's smart contracts work together with Legion's backend, which is responsible for publishing sale results after analyzing and indexing events emitted during the sale process.
+Legion’s smart contracts are designed to work seamlessly with our backend for off-chain calculations, such as sale result processing, ensuring efficiency and compliance. While this introduces dependency, it enables complex operations not feasible on-chain alone.
 
 ### Further Technical Resources & Links
 
 - **Legion Docs**: Our system documentation, subject to change. [Link](https://legion-1.gitbook.io/)
+- **Legion Changelog**: [Link](https://github.com/Legion-Team/legion-protocol-contracts/releases/tag/2025-08-27)
 - **Legion Whitepaper**: [Link](https://legion.cc/documents/Legion_Whitepaper.pdf)
 - **Legion Website**: [Link](https://legion.cc)
 - **Twitter**: [@legiondotcc](https://x.com/legiondotcc)
@@ -42,16 +41,26 @@ Legion's smart contracts work together with Legion's backend, which is responsib
 
 **Source**: [GitHub](https://github.com/Legion-Team/legion-protocol-contracts)
 
-| Name (Address Link)                                                                                     | Repo                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [LegionBouncer](https://etherscan.io/address/0x4a7aca57a685c9e893f60a716415e5e588500533)                | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/LegionBouncer.sol>                          |
-| [LegionVestingFactory](https://etherscan.io/address/0x7832d6730aa93f6954ca158e392b21d0a95e9e5f)         | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionVestingFactory.sol>         |
-| [LegionAddressRegistry](https://etherscan.io/address/0x58ddd0816120cab3e646dd57b9722b016552aed7)        | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/LegionAddressRegistry.sol>                  |
-| [LegionPreLiquidSaleV1Factory](https://etherscan.io/address/0x6d1a5c2c7f71c3a16a36a247f12ce8aedeb5c4e7) | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionPreLiquidSaleV1Factory.sol> |
-| [LegionPreLiquidSaleV2Factory](https://etherscan.io/address/0x9b7ed9757e0e97e11427377fed3bb46f92d53ce9) | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionPreLiquidSaleV2Factory.sol> |
-| [LegionPreLiquidSaleV1](https://etherscan.io/address/0x3Cd9E6a79446d8331101252F6cA8d943AC1777ef)        | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/LegionPreLiquidSaleV1.sol>                  |
-| [LegionPreLiquidSaleV2](https://etherscan.io/address/0x076Ff291EA6783C17d8AC3459E1Fd9Da37741add)        | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/LegionPreLiquidSaleV2.sol>                  |
-| [LegionLinearVesting](https://etherscan.io/address/0x423781817E3998659AE3a012357e1B958e9aEE06)          | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/LegionLinearVesting.sol>                    |
+| Name (Address Link)                                                                                     | Repo                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------               |
+| [LegionBouncer](https://etherscan.io)                                                                   | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/access/LegionBouncer.sol>                                 |
+| [LegionReferrerFeeDistributor](https://etherscan.io)                                                    | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/distribution/LegionReferrerFeeDistributor.sol>            |
+| [LegionTokenDistributor](https://etherscan.io)                                                          | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/distribution/LegionTokenDistributor.sol>                  |
+| [LegionCapitalRaiseFactory](https://etherscan.io)                                                       | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionCapitalRaiseFactory.sol>                  |
+| [LegionFixedPriceSaleFactory](https://etherscan.io)                                                     | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionFixedPriceSaleFactory.sol>                |
+| [LegionPreLiquidApprovedSaleFactory](https://etherscan.io)                                              | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionPreLiquidApprovedSaleFactory.sol>         |
+| [LegionPreLiquidOpenApplicationSaleFactory](https://etherscan.io)                                       | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionPreLiquidOpenApplicationSaleFactory.sol>  |
+| [LegionSealedBidAuctionSaleFactory](https://etherscan.io)                                               | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionSealedBidAuctionSaleFactory.sol>          |
+| [LegionTokenDistributorFactory](https://etherscan.io)                                                   | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionTokenDistributorFactory.sol>              |
+| [LegionVestingFactory](https://etherscan.io)                                                            | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/factories/LegionVestingFactory.sol>                       |
+| [LegionCapitalRaise](https://etherscan.io)                                                              | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/raise/LegionCapitalRaise.sol>                             |
+| [LegionAddressRegistry](https://etherscan.io)                                                           | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/registries/LegionAddressRegistry.sol>                     |
+| [LegionFixedPriceSale](https://etherscan.io)                                                            | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/sales/LegionFixedPriceSale.sol>                           |
+| [LegionPreLiquidApprovedSale](https://etherscan.io)                                                     | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/sales/LegionPreLiquidApprovedSale.sol>                    |
+| [LegionPreLiquidOpenApplicationSale](https://etherscan.io)                                              | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/sales/LegionPreLiquidOpenApplicationSale.sol>             |
+| [LegionSealedBidAuctionSale](https://etherscan.io)                                                      | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/sales/LegionSealedBidAuctionSale.sol>                     |
+| [LegionLinearEpochVesting](https://etherscan.io)                                                        | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/vesting/LegionLinearEpochVesting.sol>                     |
+| [LegionLinearVesting](https://etherscan.io)                                                             | <https://github.com/Legion-Team/legion-protocol-contracts/blob/master/src/vesting/LegionLinearVesting.sol>                          |
 
 ## Out-of-Scope
 
@@ -61,10 +70,11 @@ Bug reports covering previously-discovered bugs (listed below) are not eligible 
 
 The following are known issues and therefore are out of scope:
 
-- Centralisation Risks
+- Centralization risks
 - Lack of support for fee-on-transfer and rebasing tokens
-- Project owners are not required to provide ask tokens before
-  withdrawing capital
+- Project owners are not required to provide ask tokens to pre-liquid sales before withdrawing capital
+- Signature reuse when investing (users are allowed to invest multiple times in the same sale, using the same signature)
+- Refunding is allowed prior to official sale end, technically allowing users more time for refund than the specified `refundPeriod`
 
 ### Previous Audits
 
@@ -85,6 +95,9 @@ Legion's previous audits can be found below: [Audits](https://github.com/Legion-
 
 **And these don’t count either:**
 
+- Incorrect input data supplied by users.
+- Missing input data validation.
+- MEV / Frontrunning attacks.
 - Breakdowns in outside services.
 - Compromised private keys.
 - Phishing schemes or fake sites.
